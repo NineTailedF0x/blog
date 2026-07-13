@@ -1,0 +1,15 @@
+{{- if (.Param "ShowBreadCrumbs") -}}
+<nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    <span class="breadcrumbs-user">root@ninetailedf0x</span><span class="breadcrumbs-punct">:</span><a href="{{ "/" | relLangURL }}" class="breadcrumbs-path">~</a>
+    {{- $ancestors := .Ancestors.Reverse -}}
+    {{- range $i, $bc := $ancestors }}
+        {{- if ne $i 0 }}
+        <span class="breadcrumbs-punct">/</span><a href="{{ $bc.RelPermalink }}" class="breadcrumbs-path">{{ $bc.Title | lower }}</a>
+        {{- end }}
+    {{- end }}
+    {{- if .IsPage }}
+    <span class="breadcrumbs-punct">/</span><a href="{{ "/easter-egg/" | relLangURL }}" class="breadcrumbs-path breadcrumbs-current">{{ .File.ContentBaseName | lower }}</a>
+    {{- end }}
+    <span class="breadcrumbs-prompt">$</span>
+</nav>
+{{- end -}}

@@ -327,6 +327,45 @@ h1, h2, h3, h4, h5, h6,
     color: var(--accent-2);
 }
 
+/* ---- breadcrumbs (terminal path prompt) --------------------------------- */
+
+.breadcrumbs {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    row-gap: 0.2rem;
+}
+
+.breadcrumbs-user {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.breadcrumbs-punct {
+    color: var(--secondary);
+    opacity: 0.7;
+}
+
+.breadcrumbs .breadcrumbs-path,
+.breadcrumbs a.breadcrumbs-path {
+    font-size: inherit;
+    color: var(--accent-2);
+    text-decoration: none;
+}
+
+.breadcrumbs a.breadcrumbs-path:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs .breadcrumbs-current {
+    color: var(--primary);
+}
+
+.breadcrumbs-prompt {
+    color: var(--accent);
+    font-weight: 700;
+    margin-inline-start: 0.1rem;
+}
+
 /* ---- code blocks ------------------------------------------------------ */
 
 div.highlight,
