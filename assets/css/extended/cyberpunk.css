@@ -13,15 +13,15 @@
 
 :root {
     --radius: 2px;
-    --theme: #f3f7f4;
-    --entry: #ffffff;
-    --primary: #0b3d24;
-    --secondary: #3f6152;
-    --tertiary: #cfe7da;
-    --content: #16301f;
+    --theme: #182f26;
+    --entry: #181a1b;
+    --primary: #eaf7ee;
+    --secondary: #86a893;
+    --tertiary: #1f362c;
+    --content: #cfe6d6;
     --code-block-bg: #0a120d;
-    --code-bg: #e9f4ee;
-    --border: #b9d9c6;
+    --code-bg: #10201a;
+    --border: #2c4a3c;
     --accent: #c2540a;
     --accent-2: #067a52;
 }
@@ -38,6 +38,11 @@
     --border: #1c3626;
     --accent: var(--fox-orange);
     --accent-2: var(--neon-green);
+}
+
+:root[data-theme="dark"] .post-entry,
+:root[data-theme="dark"] .first-entry {
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
 /* ---- global type ---------------------------------------------------- */
