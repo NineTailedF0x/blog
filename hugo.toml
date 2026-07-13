@@ -1,6 +1,6 @@
 baseURL = "https://blog.ninetailedf0x.com/"
 languageCode = "en-us"
-title = "NineTailedF0x Security Blog (and stuff)"
+title = "NineTailedF0x Security Blog"
 theme = "PaperMod"
 enableRobotsTXT = true
 buildDrafts = false
