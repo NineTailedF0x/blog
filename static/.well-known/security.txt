@@ -1,0 +1,3 @@
+Contact: mailto:you@yourdomain.tld
+Preferred-Languages: en
+Canonical: https://yourdomain.tld/.well-known/security.txt

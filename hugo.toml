@@ -1,0 +1,76 @@
+baseURL = "https://yourdomain.tld/"
+languageCode = "en-us"
+title = "0xYourHandle — Security Writeups"
+theme = "PaperMod"
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+pygmentsUseClasses = true
+
+[minify]
+  disableXML = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  env = "production"
+  title = "0xYourHandle"
+  description = "Web app pentesting notes, CVE writeups, and lab breakdowns"
+  keywords = ["security", "pentesting", "web application security", "CTF", "OSWA"]
+  author = "YourHandle"
+  DateFormat = "2006-01-02"
+  defaultTheme = "dark"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  ShowToc = true
+  TocOpen = false
+  comments = false
+  hidemeta = false
+
+  [params.homeInfoParams]
+    Title = "Hi, I break web apps for a living."
+    Content = "Writeups, methodology notes, and lab breakdowns from web application penetration testing."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/yourhandle"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "index.xml"
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "labs"
+  name = "Labs"
+  url = "/labs/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "tags"
+  name = "Tags"
+  url = "/tags/"
+  weight = 30
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "monokai"
+  [markup.goldmark.renderer]
+    unsafe = true
