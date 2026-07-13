@@ -13,7 +13,7 @@ AI this, AI that and after that comes "Cybersecurity is DEAD, it will be replace
 
 If youre not coming from my [linkedin](https://www.linkedin.com/in/yehor-ulianov/) — nice to meet you. I am a web application pentester by <span class="gloss" tabindex="0" data-tip="Go check out other cool blogposts there!">[r-tec](https://www.r-tec.net)</span>, *just* shy of 2 years in the company, with a lot of experience before this in CTFs and Bug Bounty.
 
-My niche? Probably weird <span class="gloss" tabindex="0" data-tip="WSTG-speak for client-side and input validation issues">CLNT/INPV-01</span> vulns and a lot of <span class="gloss" tabindex="0" data-tip="Authorization testing">ATHZ</span> (Coming_soon_TM). Also browser exploitation (I hope I will get the chance to publish my dirty work in the future).
+My niche? Probably weird <span class="gloss" tabindex="0" data-tip="WSTG-speak for client-side and input validation issues">CLNT/INPV-01</span> vulns and a lot of <span class="gloss" tabindex="0" data-tip="Authorization testing">ATHZ</span> (Another blogpost about this is Coming_soon_TM). Also browser exploitation (I hope I will get the chance to publish my dirty work in the future).
 
 The last couple of months I was really digging deep into doing LLM-Driven (Local AND Claude) [WSTG](https://owasp.org/www-project-web-security-testing-guide/v42/)-Coverage projects (so yeah, Im not going to tell you about <span class="gloss" tabindex="0" data-tip="Just prompting an AI and trusting whatever it spits out, no real methodology behind it">VIBEHACKING</span> here, the point was to really cover the whole app from A to Z), and well, I am here to tell you my journey and why AI-Apocalypse is certainly not coming yet.
 
