@@ -35,9 +35,20 @@ pygmentsUseClasses = true
   comments = false
   hidemeta = false
 
+  [params.label]
+    text = "NineTailedF0x"
+    icon = "img/avatar.png"
+    iconHeight = 34
+
+  [params.assets]
+    favicon = "img/avatar.png"
+    favicon16x16 = "img/avatar.png"
+    favicon32x32 = "img/avatar.png"
+    apple_touch_icon = "img/avatar.png"
+
   [params.homeInfoParams]
-    Title = "Hi, I break web apps for a living."
-    Content = "Don't expect anything really serious here, just some security blogposts that I will write from time to time."
+    Title = "I'm <span class=\"fox-name\">NineTailedF0x</span> <br>And I break web apps for a living"
+    Content = "Nine tails, one fox, zero patience for bad input validation. Don't expect anything really serious here, just some security blogposts that I will write from time to time."
 
   [[params.socialIcons]]
     name = "github"
@@ -46,18 +57,6 @@ pygmentsUseClasses = true
   [[params.socialIcons]]
     name = "rss"
     url = "index.xml"
-
-[[menu.main]]
-  identifier = "posts"
-  name = "Posts"
-  url = "/posts/"
-  weight = 10
-
-[[menu.main]]
-  identifier = "tags"
-  name = "Tags"
-  url = "/tags/"
-  weight = 30
 
 [markup]
   [markup.highlight]
