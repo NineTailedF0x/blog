@@ -32,8 +32,13 @@ pygmentsUseClasses = true
   ShowRssButtonInSectionTermList = true
   ShowToc = true
   TocOpen = false
-  comments = false
+  comments = true
   hidemeta = false
+
+  # Cusdis (privacy-friendly, nickname-only comments — no login required)
+  # Create a project at https://cusdis.com/dashboard and paste its App ID below.
+  cusdisAppId = "43e8009d-d594-496d-bbcb-0f29c863d495"
+  cusdisHost = "https://cusdis.com"
 
   [params.label]
     text = "NineTailedF0x"
@@ -48,11 +53,19 @@ pygmentsUseClasses = true
 
   [params.homeInfoParams]
     Title = "I'm <span class=\"fox-name\">NineTailedF0x</span> <br>And I break web apps for a living"
-    Content = "Nine tails, one fox, zero patience for bad input validation. Don't expect anything really serious here, just some security blogposts that I will write from time to time."
+    Content = "Nine tails, one fox, zero patience for bad input validation. Dont expect regular posts, and dont expect them to always be serious — just security blogposts and random tech thoughts, *whenever the mood strikes*."
 
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/NineTailedF0x"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/yehor-ulianov/"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:Nin3TailedF0x@protonmail.com"
 
   [[params.socialIcons]]
     name = "rss"

@@ -1,0 +1,84 @@
+{{- /* Cusdis: privacy-friendly, nickname-only comments (no login/account required) */ -}}
+{{- if site.Params.cusdisAppId }}
+<div class="cusdis-comments">
+  <h2 class="cusdis-heading">comments</h2>
+  <div id="cusdis_thread"
+    data-host="{{ site.Params.cusdisHost | default "https://cusdis.com" }}"
+    data-app-id="{{ site.Params.cusdisAppId }}"
+    data-page-id="{{ .RelPermalink }}"
+    data-page-url="{{ .Permalink }}"
+    {{- $title := replaceRE `\s+` " " (.Title | plainify) }}
+    data-page-title="{{ trim $title " " }}"
+    data-theme="dark"
+  ></div>
+  <script async src="{{ site.Params.cusdisHost | default "https://cusdis.com" }}/js/cusdis.es.js"></script>
+  <script>
+    (function () {
+      var container = document.getElementById('cusdis_thread');
+      if (!container) return;
+
+      var rootStyle = getComputedStyle(document.documentElement);
+      function v(name) { return rootStyle.getPropertyValue(name).trim(); }
+
+      var themeCss = [
+        'html,body{background:' + v('--theme') + ' !important;color:' + v('--content') + ' !important;font-family:' + v('--font-mono') + ' !important;}',
+        'input,textarea{background:' + v('--entry') + ' !important;border:1px solid ' + v('--border') + ' !important;color:' + v('--content') + ' !important;border-radius:' + v('--radius') + ' !important;}',
+        'input:focus,textarea:focus{outline:none !important;border-color:' + v('--accent') + ' !important;}',
+        'button{background:transparent !important;border:1px solid ' + v('--accent') + ' !important;color:' + v('--accent') + ' !important;border-radius:' + v('--radius') + ' !important;cursor:pointer;font-family:' + v('--font-mono') + ' !important;}',
+        'button:hover{background:' + v('--accent') + ' !important;color:' + v('--theme') + ' !important;}',
+        'a{color:' + v('--accent-2') + ' !important;}',
+        '.text-gray-500,.text-gray-400,label{color:' + v('--secondary') + ' !important;}',
+        '.dark\\:text-gray-100,.dark\\:text-gray-200,.font-medium{color:' + v('--content') + ' !important;}',
+      ].join('');
+
+      function styleFrame(iframe) {
+        try {
+          var doc = iframe.contentDocument;
+          if (!doc || !doc.head || doc.getElementById('cyberpunk-cusdis')) return;
+          var style = doc.createElement('style');
+          style.id = 'cyberpunk-cusdis';
+          style.textContent = themeCss;
+          doc.head.appendChild(style);
+        } catch (e) {}
+      }
+
+      function syncHeight(iframe) {
+        try {
+          var doc = iframe.contentDocument;
+          if (!doc) return;
+          var h = doc.documentElement.scrollHeight;
+          if (h) iframe.style.height = h + 'px';
+        } catch (e) {}
+      }
+
+      function attach(iframe) {
+        styleFrame(iframe);
+        syncHeight(iframe);
+        var tries = 0;
+        var interval = setInterval(function () {
+          styleFrame(iframe);
+          syncHeight(iframe);
+          tries += 1;
+          if (tries > 20) clearInterval(interval);
+        }, 300);
+        try {
+          new MutationObserver(function () { styleFrame(iframe); syncHeight(iframe); })
+            .observe(iframe.contentDocument.body, { childList: true, subtree: true });
+        } catch (e) {}
+      }
+
+      var existing = container.querySelector('iframe');
+      if (existing) { attach(existing); }
+
+      new MutationObserver(function () {
+        var iframe = container.querySelector('iframe');
+        if (iframe && !iframe.dataset.cyberpunkAttached) {
+          iframe.dataset.cyberpunkAttached = 'true';
+          iframe.addEventListener('load', function () { attach(iframe); });
+          attach(iframe);
+        }
+      }).observe(container, { childList: true });
+    })();
+  </script>
+</div>
+{{- end }}

@@ -179,6 +179,28 @@ h1, h2, h3, h4, h5, h6,
     color: var(--accent-2);
 }
 
+/* ---- emphasis (bold / italic / bold-italic) ------------------------------ */
+
+.entry-content strong,
+.page-content strong,
+.post-content strong,
+.entry-content b,
+.page-content b,
+.post-content b {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.entry-content em,
+.page-content em,
+.post-content em,
+.entry-content i,
+.page-content i,
+.post-content i {
+    color: var(--accent);
+    font-style: italic;
+}
+
 /* ---- home intro / hero -------------------------------------------------- */
 
 .home-info .entry-header {
@@ -282,6 +304,27 @@ h1, h2, h3, h4, h5, h6,
     content: "// ";
     color: var(--accent);
     opacity: 0.8;
+}
+
+/* ---- title / subtitle -------------------------------------------------- */
+
+.entry-hint-parent {
+    flex-wrap: wrap;
+}
+
+.post-subtitle {
+    flex-basis: 100%;
+    display: block;
+    font-size: 0.55em;
+    font-weight: 700;
+    color: var(--accent);
+    margin-top: 0.4em;
+    letter-spacing: 0.02em;
+}
+
+.post-subtitle::before {
+    content: "> ";
+    color: var(--accent-2);
 }
 
 /* ---- code blocks ------------------------------------------------------ */
@@ -418,6 +461,100 @@ a.tag {
     text-underline-offset: 3px;
 }
 
+/* ---- inline glossary annotations --------------------------------------- */
+
+.entry-content .gloss,
+.page-content .gloss,
+.post-content .gloss {
+    position: relative;
+    color: var(--accent);
+    border-bottom: 1px dotted var(--accent);
+    cursor: help;
+}
+
+.entry-content .gloss::after,
+.page-content .gloss::after,
+.post-content .gloss::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    margin-bottom: 6px;
+    width: max-content;
+    max-width: 260px;
+    background: var(--code-block-bg);
+    color: var(--content);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 0.4em 0.6em;
+    font-size: 0.8em;
+    line-height: 1.3;
+    white-space: normal;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 5;
+}
+
+.entry-content .gloss:hover::after,
+.entry-content .gloss:focus::after,
+.page-content .gloss:hover::after,
+.page-content .gloss:focus::after,
+.post-content .gloss:hover::after,
+.post-content .gloss:focus::after {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* ---- details / hidden hints -------------------------------------------- */
+
+.entry-content details,
+.page-content details,
+.post-content details {
+    border: 1px solid var(--border);
+    border-inline-start: 3px solid var(--accent-2);
+    border-radius: var(--radius);
+    background: var(--tertiary);
+    padding: 0.6em 1em;
+    margin: 1.5em 0;
+}
+
+.entry-content summary,
+.page-content summary,
+.post-content summary {
+    cursor: pointer;
+    color: var(--accent);
+    font-weight: 600;
+    list-style: none;
+}
+
+.entry-content summary::-webkit-details-marker,
+.page-content summary::-webkit-details-marker,
+.post-content summary::-webkit-details-marker {
+    display: none;
+}
+
+.entry-content summary::before,
+.page-content summary::before,
+.post-content summary::before {
+    content: "[ + ] ";
+    color: var(--accent-2);
+}
+
+.entry-content details[open] summary::before,
+.page-content details[open] summary::before,
+.post-content details[open] summary::before {
+    content: "[ - ] ";
+}
+
+.entry-content details > *:not(summary),
+.page-content details > *:not(summary),
+.post-content details > *:not(summary) {
+    margin-top: 0.75em;
+}
+
 /* ---- footer ------------------------------------------------------------ */
 
 .footer {
@@ -449,6 +586,41 @@ a.tag {
 
 .search-results li.focus a {
     border-color: var(--accent);
+}
+
+/* ---- comments (cusdis) ------------------------------------------------- */
+
+.cusdis-comments {
+    margin-top: calc(var(--gap) * 3);
+    padding-top: calc(var(--gap) * 1.5);
+    border-top: 1px dashed var(--border);
+}
+
+.cusdis-heading {
+    font-family: var(--font-mono);
+    font-size: 1em;
+    letter-spacing: 0.03em;
+    color: var(--primary);
+    margin-bottom: 1em;
+}
+
+.cusdis-heading::before {
+    content: "// ";
+    color: var(--accent);
+    opacity: 0.8;
+}
+
+#cusdis_thread {
+    /* Cusdis renders into a same-origin srcdoc <iframe>, so its actual
+       theming is injected as a <style> tag directly into that iframe's
+       document by the script in layouts/_partials/comments.html —
+       ordinary CSS here cannot reach across the frame boundary. */
+    line-height: 0;
+}
+
+#cusdis_thread iframe {
+    display: block;
+    width: 100%;
 }
 
 /* ---- mobile: monospace runs wider than the default sans, rein in headings ---- */
