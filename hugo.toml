@@ -52,7 +52,7 @@ pygmentsUseClasses = true
     apple_touch_icon = "img/avatar.png"
 
   [params.homeInfoParams]
-    Title = "I'm <span class=\"fox-name\">NineTailedF0x</span> <br>And I break web apps for a living"
+    Title = "I'm <a href=\"/cv/\" class=\"fox-name\">NineTailedF0x</a> <br>And I break web apps for a living"
     Content = "Nine tails, one fox, zero patience for bad input validation. Dont expect regular posts, and dont expect them to always be serious — just security blogposts and random tech thoughts, *whenever the mood strikes*."
 
   [[params.socialIcons]]
@@ -70,6 +70,26 @@ pygmentsUseClasses = true
   [[params.socialIcons]]
     name = "rss"
     url = "index.xml"
+
+[[menu.main]]
+  name = "posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "cv"
+  url = "/cv/"
+  weight = 20
+
+[[menu.main]]
+  name = "tags"
+  url = "/tags/"
+  weight = 30
+
+[[menu.main]]
+  name = "search"
+  url = "/search/"
+  weight = 40
 
 [markup]
   [markup.highlight]

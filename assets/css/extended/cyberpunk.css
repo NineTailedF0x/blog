@@ -662,6 +662,272 @@ a.tag {
     width: 100%;
 }
 
+/* ---- CV page --------------------------------------------------------------- */
+
+.cv-header {
+    border: 1px solid var(--border);
+    border-inline-start: 3px solid var(--accent);
+    background: var(--entry);
+    padding: 1.5em 2em;
+    margin-bottom: 2em;
+    border-radius: var(--radius);
+}
+
+.cv-identity {
+    margin-bottom: 1em;
+}
+
+.cv-name {
+    font-family: var(--font-mono);
+    font-size: 2em;
+    color: var(--accent);
+    margin: 0 0 0.2em;
+    letter-spacing: 0.02em;
+}
+
+.cv-tagline {
+    color: var(--accent-2);
+    font-size: 0.95em;
+    margin: 0;
+}
+
+.cv-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em 1.8em;
+    font-size: 0.85em;
+}
+
+.cv-contact span::before {
+    content: "> ";
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+.cv-summary {
+    border: 1px solid var(--border);
+    background: var(--tertiary);
+    border-radius: var(--radius);
+    padding: 1.2em 1.5em;
+    margin-bottom: 1.5em;
+    color: var(--content);
+    line-height: 1.7;
+}
+
+.cv-entry {
+    margin-bottom: 1.8em;
+    padding-inline-start: 1.2em;
+    border-inline-start: 2px solid var(--border);
+}
+
+.cv-entry:hover {
+    border-inline-start-color: var(--accent);
+}
+
+.cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.3em 1em;
+    margin-bottom: 0.5em;
+}
+
+.cv-entry-header > div {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.cv-role {
+    display: block;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.05em;
+}
+
+.cv-role::before {
+    content: "$ ";
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.cv-org {
+    display: block;
+    color: var(--secondary);
+    font-size: 0.9em;
+}
+
+.cv-date {
+    font-size: 0.8em;
+    color: var(--accent-2);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cv-entry-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-entry-body li {
+    padding-inline-start: 1em;
+    position: relative;
+    margin-bottom: 0.3em;
+    color: var(--content);
+    font-size: 0.92em;
+    line-height: 1.6;
+}
+
+.cv-entry-body li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* cert badges */
+
+.cv-certs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.cv-cert {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+    padding-inline-start: 1.2em;
+    border-inline-start: 2px solid var(--border);
+}
+
+.cv-cert:hover {
+    border-inline-start-color: var(--accent);
+}
+
+.cv-cert-badge {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.85em;
+    color: var(--theme);
+    background: var(--accent);
+    padding: 0.3em 0.7em;
+    border-radius: var(--radius);
+    white-space: nowrap;
+    min-width: 4em;
+    text-align: center;
+}
+
+.cv-cert-name {
+    display: block;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.cv-cert-issuer {
+    display: block;
+    font-size: 0.85em;
+    color: var(--secondary);
+}
+
+/* skills grid */
+
+.cv-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5em;
+}
+
+.cv-skill-group {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1em 1.2em;
+    background: var(--entry);
+}
+
+.cv-skill-group h4 {
+    color: var(--accent);
+    margin: 0 0 0.6em;
+    font-size: 0.9em;
+    text-transform: lowercase;
+}
+
+.cv-skill-group h4::before {
+    content: "// ";
+    color: var(--accent-2);
+    opacity: 0.7;
+}
+
+.cv-skill-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-skill-group li {
+    font-size: 0.88em;
+    color: var(--content);
+    padding: 0.15em 0;
+}
+
+.cv-skill-group li::before {
+    content: "- ";
+    color: var(--accent);
+}
+
+/* language bars */
+
+.cv-langs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.cv-lang {
+    display: grid;
+    grid-template-columns: 7em 1fr 4em;
+    align-items: center;
+    gap: 1em;
+}
+
+.cv-lang-name {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.9em;
+}
+
+.cv-lang-bar {
+    height: 6px;
+    background: var(--tertiary);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cv-lang-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--pct);
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius: 3px;
+}
+
+.cv-lang-level {
+    font-size: 0.8em;
+    color: var(--accent-2);
+    text-align: right;
+}
+
+.cv-footer-note {
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--secondary);
+    margin-top: 2em;
+}
+
 /* ---- mobile: monospace runs wider than the default sans, rein in headings ---- */
 
 @media screen and (max-width: 768px) {
