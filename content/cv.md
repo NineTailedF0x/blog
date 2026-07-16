@@ -185,8 +185,8 @@ Security professional specializing in web application penetration testing, with 
 
 ---
 
-## skills
-
+<div class="cv-skills-section">
+<h2>skills</h2>
 <div class="cv-skills">
   <div class="cv-skill-group">
     <h4>offensive</h4>
@@ -220,6 +220,7 @@ Security professional specializing in web application penetration testing, with 
       <li>Internal Training & Knowledge Sharing</li>
     </ul>
   </div>
+</div>
 </div>
 
 ---
@@ -437,8 +438,8 @@ Security-Spezialist mit Schwerpunkt Web Application Penetration Testing und prak
 
 ---
 
-## kenntnisse
-
+<div class="cv-skills-section">
+<h2>kenntnisse</h2>
 <div class="cv-skills">
   <div class="cv-skill-group">
     <h4>offensiv</h4>
@@ -472,6 +473,7 @@ Security-Spezialist mit Schwerpunkt Web Application Penetration Testing und prak
       <li>Interne Schulungen & Wissenstransfer</li>
     </ul>
   </div>
+</div>
 </div>
 
 ---
