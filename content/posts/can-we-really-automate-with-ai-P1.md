@@ -1,7 +1,7 @@
 ---
 title: "Can we *really* automate with AI?"
 subtitle: "P1: System Prompt as a Pentester"
-date: 2026-07-13
+date: 2026-07-17
 draft: false
 tags: ["AI", "pentesting", "rant"]
 summary: "Tearing apart every 'AI pentester' on GitHub - T3MP3ST, Strix, PentestGPT and friends. Theyre all the same thing: a system prompt saying 'you are a hacker'. Code-level proof inside."
