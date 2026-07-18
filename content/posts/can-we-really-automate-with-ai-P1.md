@@ -9,12 +9,21 @@ summary: "Tearing apart every 'AI pentester' on GitHub - T3MP3ST, Strix, Pentest
 
 If you search GitHub for "AI pentesting" right now, youll find dozens of projects promising autonomous hacking. Impressive READMEs, cool architecture diagrams, benchmark tables. I went through the code of every major one. Theyre all the same thing wearing different clothes.
 
-To actually compare them fairly, Im defining a couple of "components" each one claims to have and judging based on whats expected vs what was delivered (I will also refernce them in P2):
+To actually compare them fairly, Im defining a couple of "components" each one claims to have and judging based on whats expected vs what was delivered (I will also reference them in P2):
 
 - **"AI Pentester"**: System prompt(s) analysis
 - **"Tools"**: what is exposed, how they are handled
 - **"Methodology"**: How the LLM is being guided / approach to the pentesting
 - **"Safeguards"**: Are there any?
+
+So what am I actually expecting from these? Not perfection - just the bare minimum that would make me take them seriously:
+
+- **"AI Pentester"**: Structured, actionable prompts that guide the LLM through a real methodology step by step. Not "be a hacker", not "think like a red teamer", but actual instructions that map to concrete actions. Tell it *what* to test, *how* to test it, and *what* a positive result looks like. If your system prompt reads like a motivational speech, youve already lost.
+- **"Tools"**: Either proper wrappers around real tools (nmap, ffuf, sqlmap) with structured output parsing, or custom implementations that arent embarrassingly small. If your XSS scanner has 6 payloads, you dont have an XSS scanner - you have a demo. I expect tools that parse their own output into something the LLM can actually reason about (here Im guilty myself, since in my own workflows Im using raw terminal outputs, but I want to find a *better* solution).
+- **"Methodology"**: Deterministic enforcement in *code*, not in prompts. A checklist the LLM *must* complete, not one it *might* follow. Coverage tracking - did it actually test every endpoint? Every parameter? Against every relevant vuln class? If the LLM can just skip steps or call it a day after two nmap scans, your methodology doesnt exist.
+- **"Safeguards"**: Code-level enforcement. Scope checks that run *before* tool execution, not after. Evidence validation that checks whether the output actually *supports* the finding, not just whether output *exists*. And please, something beyond "NEVER hack out of scope" in the system prompt - thats **not** a safeguard, thats a prayer.
+
+These arent unreasonable asks. This is what separates a tool from a toy. Lets see how they did.
 
 I will be referring to all of these projects as **"SPaaP"** (<span class="gloss" tabindex="0" data-tip="System Prompt as a Pentester - the pattern where all pentesting 'intelligence' lives in a text prompt telling the AI 'you are a hacker', not in actual code">System Prompt as a Pentester</span>) because thats, at the end of the day, what they all are.
 
